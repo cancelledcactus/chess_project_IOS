@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		840544B92F72F36300775CE9 /* ChessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840544B82F72F36300775CE9 /* ChessViewModel.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		842F24C62F6B0D0900ACD7D2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		840544B82F72F36300775CE9 /* ChessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessViewModel.swift; sourceTree = "<group>"; };
 		842F24B82F6B0D0700ACD7D2 /* chess_project_IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chess_project_IOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		842F24C52F6B0D0900ACD7D2 /* chess_project_IOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chess_project_IOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		842F24CF2F6B0D0900ACD7D2 /* chess_project_IOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chess_project_IOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +80,7 @@
 		842F24AF2F6B0D0700ACD7D2 = {
 			isa = PBXGroup;
 			children = (
+				840544B82F72F36300775CE9 /* ChessViewModel.swift */,
 				842F24BA2F6B0D0700ACD7D2 /* chess_project_IOS */,
 				842F24C82F6B0D0900ACD7D2 /* chess_project_IOSTests */,
 				842F24D22F6B0D0900ACD7D2 /* chess_project_IOSUITests */,
@@ -236,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840544B92F72F36300775CE9 /* ChessViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
