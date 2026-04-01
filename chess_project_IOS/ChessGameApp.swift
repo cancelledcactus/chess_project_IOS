@@ -1,10 +1,11 @@
 import SwiftUI
 
-@main
-struct ChessGameApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+struct ChessGameScreen: View {
+    var body: some View {
+        ContentView()
     }
+}
+
+#Preview {
+    ChessGameScreen()
 }

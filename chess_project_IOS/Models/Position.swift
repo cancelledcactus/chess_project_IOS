@@ -1,6 +1,6 @@
 import Foundation
 
-struct Position: Hashable, Codable {
+struct Position: Equatable, Codable, Hashable {
     let row: Int
     let col: Int
 
@@ -9,12 +9,7 @@ struct Position: Hashable, Codable {
     }
 
     var algebraic: String {
-        let file = String(UnicodeScalar(97 + col)!)
-        let rank = String(8 - row)
-        return file + rank
-    }
-
-    static func from(file: Int, rank: Int) -> Position {
-        Position(row: 8 - rank, col: file)
+        let files = ["a", "b", "c", "d", "e", "f", "g", "h"]
+        return "\(files[col])\(8 - row)"
     }
 }

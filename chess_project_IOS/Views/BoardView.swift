@@ -4,38 +4,38 @@ struct BoardView: View {
     @ObservedObject var viewModel: ChessViewModel
 
     var body: some View {
-        GeometryReader { geometry in
-            let boardSize = min(geometry.size.width, geometry.size.height)
-            let squareSize = boardSize / 8
+        GeometryReader { geo in
+            let size = min(geo.size.width, geo.size.height)
 
-            VStack(spacing: 0) {
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 0), count: 8), spacing: 0) {
                 ForEach(0..<8, id: \.self) { row in
-                    HStack(spacing: 0) {
-                        ForEach(0..<8, id: \.self) { col in
-                            let position = Position(row: row, col: col)
-                            SquareView(
-                                piece: viewModel.piece(at: position),
-                                position: position,
-                                isSelected: viewModel.isSelected(position),
-                                isLegalTarget: viewModel.isLegalTarget(position),
-                                action: {
-                                    viewModel.tapSquare(position)
-                                }
-                            )
-                            .frame(width: squareSize, height: squareSize)
+                    ForEach(0..<8, id: \.self) { col in
+                        let position = Position(row: row, col: col)
+                        SquareView(
+                            position: position,
+                            piece: viewModel.piece(at: position),
+                            isSelected: viewModel.isSelected(position),
+                            isLegalTarget: viewModel.isLegalTarget(position)
+                        ) {
+                            viewModel.tapSquare(position)
                         }
                     }
                 }
             }
-            .frame(width: boardSize, height: boardSize)
-            .background(.black.opacity(0.15))
-            .clipShape(RoundedRectangle(cornerRadius: 16))
-            .overlay(
-                RoundedRectangle(cornerRadius: 16)
-                    .stroke(.secondary.opacity(0.3), lineWidth: 1)
-            )
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .frame(width: size, height: size)
+            .clipShape(RoundedRectangle(cornerRadius: 14))
+            .overlay {
+                RoundedRectangle(cornerRadius: 14)
+                    .stroke(Color.primary.opacity(0.15), lineWidth: 1)
+            }
+            .shadow(radius: 8)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         }
         .aspectRatio(1, contentMode: .fit)
     }
+}
+
+#Preview {
+    BoardView(viewModel: ChessViewModel())
+        .padding()
 }

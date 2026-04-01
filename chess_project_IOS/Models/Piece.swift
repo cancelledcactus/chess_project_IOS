@@ -22,18 +22,9 @@ enum PieceType: String, Codable, CaseIterable {
     case pawn
 }
 
-struct Piece: Identifiable, Equatable, Codable {
-    let id: UUID
-    let color: PieceColor
+struct Piece: Equatable, Codable, Hashable {
     let type: PieceType
-    var hasMoved: Bool
-
-    init(id: UUID = UUID(), color: PieceColor, type: PieceType, hasMoved: Bool = false) {
-        self.id = id
-        self.color = color
-        self.type = type
-        self.hasMoved = hasMoved
-    }
+    let color: PieceColor
 
     var symbol: String {
         switch (color, type) {
@@ -48,7 +39,7 @@ struct Piece: Identifiable, Equatable, Codable {
         case (.black, .rook): return "♜"
         case (.black, .bishop): return "♝"
         case (.black, .knight): return "♞"
-        case (.black, .pawn): return "♟︎"
+        case (.black, .pawn): return "♟"
         }
     }
 }
