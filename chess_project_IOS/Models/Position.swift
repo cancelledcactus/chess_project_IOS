@@ -1,18 +1,20 @@
-//
-//  Position.swift
-//  chess_project_IOS
-//
-//  Created by NYCDOE on 3/24/26.
-//
+import Foundation
 
-import SwiftUI
+struct Position: Hashable, Codable {
+    let row: Int
+    let col: Int
 
-struct Position: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    var isValid: Bool {
+        (0..<8).contains(row) && (0..<8).contains(col)
     }
-}
 
-#Preview {
-    Position()
+    var algebraic: String {
+        let file = String(UnicodeScalar(97 + col)!)
+        let rank = String(8 - row)
+        return file + rank
+    }
+
+    static func from(file: Int, rank: Int) -> Position {
+        Position(row: 8 - rank, col: file)
+    }
 }

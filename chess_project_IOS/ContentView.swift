@@ -1,4 +1,3 @@
-//Devin Lin & Chris
 import SwiftUI
 
 struct ContentView: View {
@@ -68,8 +67,4 @@ struct ContentView: View {
             }
         }
     }
-}
-
-#Preview {
-    ContentView()
 }

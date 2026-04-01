@@ -1,18 +1,31 @@
-//
-//  Move.swift
-//  chess_project_IOS
-//
-//  Created by NYCDOE on 3/24/26.
-//
+import Foundation
 
-import SwiftUI
+struct Move: Equatable, Codable {
+    let from: Position
+    let to: Position
+    let piece: Piece
+    let capturedPiece: Piece?
+    let promotion: PieceType?
+    let isCastleKingSide: Bool
+    let isCastleQueenSide: Bool
+    let isEnPassant: Bool
 
-struct Move: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    var algebraicDescription: String {
+        if isCastleKingSide { return "O-O" }
+        if isCastleQueenSide { return "O-O-O" }
+
+        let piecePrefix: String
+        switch piece.type {
+        case .king: piecePrefix = "K"
+        case .queen: piecePrefix = "Q"
+        case .rook: piecePrefix = "R"
+        case .bishop: piecePrefix = "B"
+        case .knight: piecePrefix = "N"
+        case .pawn: piecePrefix = ""
+        }
+
+        let captureMarker = capturedPiece != nil || isEnPassant ? "x" : "-"
+        let promotionText = promotion.map { "=\($0.rawValue.prefix(1).uppercased())" } ?? ""
+        return "\(piecePrefix)\(from.algebraic)\(captureMarker)\(to.algebraic)\(promotionText)"
     }
-}
-
-#Preview {
-    Move()
 }
