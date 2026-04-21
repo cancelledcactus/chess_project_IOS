@@ -31,8 +31,10 @@ struct SquareView: View {
                 }
 
                 if let piece {
-                    Text(piece.symbol)
-                        .font(.system(size: 34))
+                    Image(piece.symbol)
+                        .resizable()
+                        .scaledToFit()
+                        .padding(6)
                 }
 
                 VStack {
@@ -79,8 +81,8 @@ struct SquareView: View {
 
 #Preview {
     SquareView(
-        position: Position(row: 6, col: 4),
-        piece: Piece(type: .pawn, color: .white),
+        position: Position(row: 4, col: 4),
+        piece: Piece(type: .rook, color: .black),
         isSelected: true,
         isLegalTarget: false,
         action: {}

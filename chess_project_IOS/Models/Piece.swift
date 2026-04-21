@@ -28,20 +28,21 @@ struct Piece: Equatable, Codable, Hashable {
 
     var symbol: String {
         switch (color, type) {
-        case (.white, .king): return "♔"
-        case (.white, .queen): return "♕"
-        case (.white, .rook): return "♖"
-        case (.white, .bishop): return "♗"
-        case (.white, .knight): return "♘"
-        case (.white, .pawn): return "♙"
-        case (.black, .king): return "♚"
-        case (.black, .queen): return "♛"
-        case (.black, .rook): return "♜"
-        case (.black, .bishop): return "♝"
-        case (.black, .knight): return "♞"
+        case (.white, .king): return "white-king"
+        case (.white, .queen): return "white-queen"
+        case (.white, .rook): return "white-rook"
+        case (.white, .bishop): return "white-bishop"
+        case (.white, .knight): return "white-knight"
+        case (.white, .pawn): return "white-pawn"
+        case (.black, .king): return "black-king"
+        case (.black, .queen): return "black-queen"
+        case (.black, .rook): return "black-rook"
+        case (.black, .bishop): return "black-bishop"
+        case (.black, .knight): return "black-knight"
         case (.black, .pawn): return "black-pawn"
         }
     }
 }
+
 
 
