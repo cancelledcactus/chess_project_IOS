@@ -39,7 +39,9 @@ struct Piece: Equatable, Codable, Hashable {
         case (.black, .rook): return "♜"
         case (.black, .bishop): return "♝"
         case (.black, .knight): return "♞"
-        case (.black, .pawn): return "♟"
+        case (.black, .pawn): return "black-pawn"
         }
     }
 }
+
+
