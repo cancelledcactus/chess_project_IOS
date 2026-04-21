@@ -10,6 +10,7 @@ struct ContentView: View {
 
                 BoardView(viewModel: viewModel)
                     .padding(.horizontal)
+                    .frame(maxWidth: 500)
 
                 footer
             }
@@ -69,3 +70,6 @@ struct ContentView: View {
     }
 }
 
+#Preview {
+    ContentView()
+}
