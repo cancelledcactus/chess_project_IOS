@@ -25,7 +25,7 @@ enum PieceType: String, Codable, CaseIterable {
 struct Piece: Equatable, Codable, Hashable {
     let type: PieceType
     let color: PieceColor
-
+    
     var symbol: String {
         switch (color, type) {
         case (.white, .king): return "♔"
@@ -41,5 +41,12 @@ struct Piece: Equatable, Codable, Hashable {
         case (.black, .knight): return "♞"
         case (.black, .pawn): return "♟"
         }
+        
+        
     }
+    
+    
 }
+
+
+
